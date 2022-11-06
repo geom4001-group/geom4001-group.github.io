@@ -7,7 +7,7 @@ body, html {
 /* The hero image */
 .hero-image {
   /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
-  background-image: url("https://github.com/geom4001-group/geom4001-group.github.io/blob/9a67b9419ee28948784505dc07075945e39eafe9/img/banner.jpg");
+  background-image: url("picture\butterflies.jpg");
 
   /* Set a specific height */
   height: 39%;
