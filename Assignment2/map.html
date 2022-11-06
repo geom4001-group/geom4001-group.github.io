@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<!--Banner: Elise Note: I have 0 idea why this works up here, but Mahnaz made it work, so :D -->
+	
+      <div class="hero-image">
+       <div class="hero-text">
+         <h1> Resource Compendium for New-Comers</h1>
+       </div>
+     </div>
+<head>
+  <!--  Leaflet:  -->
+
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css" integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="crossorigin=""/>
+ <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"></script>
+
+  <!-- Site Design-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"> </script>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <link rel="stylesheet" href = "style\MainStyle.css">
+
+    <!-- MapBox-->
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.css' rel='stylesheet' />
+
+    <!-- Sheetrock-->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sheetrock/1.1.4/dist/sheetrock.min.js"></script>
+
+    <title> Map | Resource Compendium for New-Comers </title>
+ <style>
+ /* For some reason these won't work if they're in Main Style. Keep Them Here*/
+ #mapdiv {
+  position: relative;
+  height: 100%;
+  width: 80%;
+  margin: 10%;
+  border-radius: 5px;
+}
+ </style>
+
+ <!--Topbar-->
+ <div class="topnav">
+   <a href="index.html">Home</a>
+   <a class="active" href="map.html">Map</a>
+   <a href="googleform.html">Add A Location</a>
+ </div>
+</head>
+
+
+<body>
+ <div id="mapdiv"></div>
+
+  <script type="text/javascript">
+
+
+  // Define spreadsheet URL:
+  var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/1uItXLYUNl159xyPF0F9p0BIwQnLLg3w5OMZ9ebqd70Y/edit#gid=0';
+
+  function CallBack(error, options, response){
+    var data = response.rows;
+    console.log(data);
+    for(i in data){
+      if(i>0) {
+        var detail1 = `<h3>` + response.rows[i].cellsArray[2] + `</h3>` +  `<h6>` + `<i>` + response.rows[i].cellsArray[1] + `</i>` + `</h6>` + `<h4>` + `<b>` + `Address: ` + `</b>` + `</h4>`;
+        var detail2 =  response.rows[i].cellsArray[5] +  `<h4>` + `<b>` + `Contact Information and Details: ` + `</b>` + `</h4>` + response.rows[i].cellsArray[6];
+
+        L.marker([response.rows[i].cellsArray[3], response.rows[i].cellsArray[4]],
+          {
+          title: "Click Me"
+          })
+          .addTo(map)
+          //set popup text
+          .bindPopup(detail1 + detail2);
+        };
+        console.log('Done with row');
+      };
+    };
+
+      var map = L.map('mapdiv').setView([45.424721, -75.695000], 11);
+
+      L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+        maxZoom: 18,
+        id: 'mapbox/streets-v11',
+        tileSize: 512,
+        zoomOffset: -1,
+        accessToken: 'pk.eyJ1IjoibmljaG9sYXNzYXZhc3RhIiwiYSI6ImNsOGs2Mmd6eTA4cDczb254ZjRmazdvbHMifQ.cJe9qgn0vYrpOgwdZydLig'
+      }).addTo(map);
+
+      sheetrock({
+        url: mySpreadsheet,
+        callback: CallBack
+      });
+
+</script>
+
+
+
+<footer id "footer" class="bg-dark p-4">
+ <div class="container"
+   <p class= "text-light text-center"> Designed and developed by Elise, Mahnaz, Nick <br> GEOM 4001 <br>  Contact us: <a href="mailto:geom4001group@gmail.com"> geom4001group@gmail.com </a>
+</footer>
+</body>
+</html>

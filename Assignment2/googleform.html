@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<!--Banner: Elise Note: I have 0 idea why this works up here, but Mahnaz made it work, so :D -->
+      <div class="hero-image">
+       <div class="hero-text">
+         <h1>Resource Compendium for New-Comers</h1>
+       </div>
+     </div>
+<head>
+ <!-- Third-party Style -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"> </script>
+   <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+   <script src='https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.js'></script>
+   <link href='https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.css' rel='stylesheet' />
+   <script src='https://npmcdn.com/csv2geojson@latest/csv2geojson.js'></script>
+   <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
+   <link rel="stylesheet" href = "style\MainStyle.css">
+   <script scr="code.js"></script>
+   <title> Add a Location | Resource Compendium for New-Comers </title>
+
+
+<style>
+
+#googleform {
+  position: relative;
+  height: 1400px;
+  width: 80%;
+  margin: 2% 10% 2%;
+}
+</style>
+ <!--Topbar-->
+ <div class="topnav">
+   <a href="index.html">Home</a>
+   <a href="map.html">Map</a>
+   <a  class="active" href="googleform.html">Add A Location</a>
+ </div>
+</head>
+
+
+<body>
+      
+  <p style="margin: 10%;margin-top: 60px; margin-bottom: 5px; text-align: justify; font-size: 14pt;">
+     Fill in the form below to add a new location to our map:
+  </p>
+ <iframe id="googleform"  src="https://docs.google.com/forms/d/e/1FAIpQLSfIv9P5DZIxQPyIQjl3suD4IyiQpxGfjtUlsidbRYLlxznHbg/viewform?embedded=true" >Loading…</iframe>
+
+ <footer id "footer" class="bg-dark p-4">
+  <div class="container"
+    <p class= "text-light text-center"> Designed and developed by Elise, Mahnaz, Nick <br> GEOM 4001 <br> Credit to the City of Ottawa for the logo and colour theme  <br>  Contact us: <a href="mailto:geom4001group@gmail.com"> geom4001group@gmail.com </a>
+ </footer>
+</body>
+</html>
