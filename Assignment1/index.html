@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<!-- 
+<!--
 BSD 3-Clause License - hello there -testing - I see the edits - test2
 
 README.md edit example
@@ -31,7 +31,7 @@ DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
 SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
 <html>
@@ -43,6 +43,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.css' rel='stylesheet' />
     <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
     <script src="https://unpkg.com/scrollama"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/charts.css/dist/charts.min.css">
     <link rel="stylesheet" href="css/MainStyle.css">
 </head>
 
@@ -51,7 +52,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   <div id="map"></div>
   <div id="story"></div>
   <script src="./story.js"></script>
-  
+
   <script>
     var layerTypes = {
         'fill': ['fill-opacity'],
@@ -114,19 +115,19 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     config.chapters.forEach((record, idx) => {
         var container = document.createElement('div');
         var chapter = document.createElement('div');
-        
+
         if (record.title) {
             var title = document.createElement('h3');
             title.innerText = record.title;
             chapter.appendChild(title);
         }
-        
+
         if (record.image) {
-            var image = new Image();  
-            image.src = record.image;  
+            var image = new Image();
+            image.src = record.image;
             chapter.appendChild(image);
         }
-        
+
         if (record.description) {
             var story = document.createElement('p');
             story.innerHTML = record.description;
@@ -163,11 +164,11 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     mapboxgl.accessToken = config.accessToken;
 
     const transformRequest = (url) => {
-        const hasQuery = url.indexOf("?") !== -1;	  
-        const suffix = hasQuery ? "&pluginName=journalismScrollytelling" : "?pluginName=journalismScrollytelling";	  
+        const hasQuery = url.indexOf("?") !== -1;
+        const suffix = hasQuery ? "&pluginName=journalismScrollytelling" : "?pluginName=journalismScrollytelling";
         return {
           url: url + suffix
-        }	  
+        }
     }
 
     var map = new mapboxgl.Map({
@@ -219,7 +220,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
     // setup resize event
     window.addEventListener('resize', scroller.resize);
-  
+
   </script>
   </body>
 </html>
