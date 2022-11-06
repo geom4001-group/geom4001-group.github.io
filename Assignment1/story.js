@@ -4,10 +4,10 @@ var config = {
     showMarkers: false,
     alignment: 'left',
     theme: 'light',
-    title: 'Assignment 1: Crime in Ottawa:',
-    subtitle: 'A Comparison of Wellbeing with Crime Rates <br> <a href="https://geom4001-group.github.io/"></a> Homepage </a>',
+    title: 'Assignment 1: Crime in Ottawa: A ',
+    subtitle: 'A Comparison of Wellbeing with Crime Rates',
     byline: 'Mahnaz T.D. ; Nick S. ; Elise B.',
-    footer: '<a href="https://geom4001-group.github.io/"></a> Homepage </a> <br> Bibliography:<ul><li>Levi, M. (2001). Business, cities and fears about crimes. Urban Studies, 38(5-6), 849-868.</li><li>Sariaslan, A., Långström, N., D’Onofrio, B., Hallqvist, J., Franck, J., & Lichtenstein, P. (2013). The impact of neighbourhood deprivation on adolescent violent criminality and substance misuse: a longitudinal, quasi-experimental study of the total Swedish population. International journal of epidemiology, 42(4), 1057-1066.</li><li><a href="https://ottawa.ca/en/city-hall/open-transparent-and-accountable-government/open-data#section-b3817ea6-5aba-4442-9865-1cc3707cc29a">City of Ottawa Open Data Site</a></li><li><a href="https://ottawa.ctvnews.ca/ottawa-wards-with-the-highest-and-lowest-crime-rates-1.5963846">Ottawa crime rate</a></li> <li><a href="https://ottawa.ctvnews.ca/ottawa-police-reporting-spike-in-bike-thefts-1.5402565"> CTV Ottawa: Police Reports Spike in Bike Thefts </a></li></ul>',
+    footer: '<a href="https://geom4001-group.github.io/"> Returm to Homepage </a> <br> Bibliography:<ul><li>Levi, M. (2001). Business, cities and fears about crimes. Urban Studies, 38(5-6), 849-868.</li><li>Sariaslan, A., Långström, N., D’Onofrio, B., Hallqvist, J., Franck, J., & Lichtenstein, P. (2013). The impact of neighbourhood deprivation on adolescent violent criminality and substance misuse: a longitudinal, quasi-experimental study of the total Swedish population. International journal of epidemiology, 42(4), 1057-1066.</li><li><a href="https://ottawa.ca/en/city-hall/open-transparent-and-accountable-government/open-data#section-b3817ea6-5aba-4442-9865-1cc3707cc29a">City of Ottawa Open Data Site</a></li><li><a href="https://ottawa.ctvnews.ca/ottawa-wards-with-the-highest-and-lowest-crime-rates-1.5963846">Ottawa crime rate</a></li> <li><a href="https://ottawa.ctvnews.ca/ottawa-police-reporting-spike-in-bike-thefts-1.5402565"> CTV Ottawa: Police Reports Spike in Bike Thefts </a></li></ul>',
     chapters: [
         {
             id: 'chapter-1',
