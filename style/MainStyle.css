@@ -148,6 +148,7 @@ footer {
   margin-top: 3px; 
   margin-bottom: 5px;
   min-height: 600px;
+  min-width: 1000px;
   background-color: whitesmoke;
 }
 
