@@ -6,7 +6,8 @@ body, html {
 /* The hero image */
 .hero-image {
   /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
-  background-image: url("../picture/butterflies.jpg");
+  background-image: url("https://www.uplooder.net/img/image/99/ab9f8f3eafda5df2cbd618f9c3f72358/Languages.png");
+    ../picture/butterflies.jpg
 
   /* Set a specific height */
   height: 150px;
