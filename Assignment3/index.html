@@ -46,15 +46,29 @@ The most commonly used factor in evaluating the vitality of a language is whethe
 UNESCO (2003) provided a classification system to show just how 'in trouble' the language with regards to Intergenerational Language Transmission:
   
     <p style="color:white;">
-    <p style="margin-left:2.5em">           
+    <p style="margin-left:2.5em">  
+       <style>   
+          ul {
+  list-style: none; /* Remove default bullets */
+}
+
+ul li::before {
+  content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+  color: red; /* Change the color */
+  font-weight: bold; /* If you want it to be bold */
+  display: inline-block; /* Needed to add space between the bullet and the text */
+  width: 1em; /* Also needed for space (tweak if needed) */
+  margin-left: -1em; /* Also needed for space (tweak if needed) */
+}
+ </style> 
+          
 <ul><li>Vulnerable - most children speak the language, but it may be restricted to certain domains (e.g., home);</li>
 <li>Definitely endangered - children no longer learn the language as a 'mother tongue' in the home;</li>
 <li>Severely endangered - language is spoken by grandparents and older generations; while the parent generation may understand it, they do not speak it to children or among themselves;
 <li>Critically endangered - the youngest speakers are grandparents and older, and they speak the language partially and infrequently;</li>
 <li>Extinct - there are no speakers left;</li>  
       </ul>
-      </p>
- <p style="margin-left:2.5em">UNESCO data retrieved from the <a href="https://www.theguardian.com/news/datablog/2011/apr/15/language-extinct-endangered">Guardian website</a> visualized in QGIS (static map) and a D3 chart.</p>  
+   <p style="margin-left:2.5em">UNESCO data retrieved from the <a href="https://www.theguardian.com/news/datablog/2011/apr/15/language-extinct-endangered">Guardian website</a> visualized in QGIS (static map) and a D3 chart.</p>  
 <style>
 a:link {
   color: green;
