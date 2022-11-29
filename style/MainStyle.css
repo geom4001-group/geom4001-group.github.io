@@ -10,7 +10,7 @@ body, html {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://www.uplooder.net/img/image/16/2b28f8a8cfa598e16e6c9f7ad357752b/last.png"); 
 
   /* Set a specific height */
-  height: 250px;
+  height: 255px;
 
   /* Position and center the image to scale nicely on all screens */
   background-position: left;
