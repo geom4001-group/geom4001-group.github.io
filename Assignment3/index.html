@@ -4,7 +4,7 @@
 <!--Banner: Elise Note: I have 0 idea why this works up here, but Mahnaz made it work, so :D -->
       <div class="hero-image" href="picture">
       <div class="hero-text">
-         <h1>List of endangered languages</h1>
+         <h1>Hello!</h1>
        </div>
      </div>
 <head>
@@ -15,10 +15,10 @@
    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
    <link rel="stylesheet" href = "..\style\MainStyle.css">
 
-   <!-- D3-->
+   <!-- D3, jQuery, Sheetrock-->
 
    <script src="https://d3js.org/d3.v5.min.js"></script>
-
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sheetrock/1.1.4/dist/sheetrock.min.js"></script>
 
    <title> Assignment 3 | GEOM 4001 </title>
 
@@ -30,86 +30,80 @@
    <a class="active" href="index.html">Assignment 3</a>
  </div>
 </head>
+
 <body>
   <p style="margin: 10%;margin-top: 60px; margin-bottom: 5px; text-align: center; font-size: 20pt;">
     <b> Endangered Indigenous Languages</b>
-      <br>
-      <p style="margin-left:2.5em">The language of each nation is characteristic of its cultural identity. Different ethnic groups express their origin, identity, history, culture, and literature in their language. Therefore, it can be said that with the decline of a language, the ethnic groups and the originality of that people will be destroyed; a person without a language is like a person without a heart.
-The Endangered Languages page in <a href="http://www.ethnologue.com/endangered-languages">Ethnologue</a> states that of the 7097 languages spoken in the world today, 1495 are considered endangered and another 918 are classified as dying. Since 1950, 360 languages have become extinct.
-In “How do you define an endangered language,” UNESCO (2016) states that “A language is endangered when its speakers cease to use it, use it in fewer and fewer domains, use fewer of its registers and speaking styles, and/or stop passing it on to the next generation.”
-The most commonly used factor in evaluating the vitality of a language is whether or not it is being transmitted from one generation to the next (Fishman 1990). Endangerment can be ranked on a continuum from stability to extinction. 
-UNESCO (2003) provided a classification system to show just how 'in trouble' the language with regards to Intergenerational Language Transmission:</p>
-        
- <style>   
-   ul {
-  list-style: none; /* Remove default bullets */
-}
-
-ul li::before {
-  content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
-  color: white; /* Change the color */
-  font-weight: bold; /* If you want it to be bold */
-  display: inline-block; /* Needed to add space between the bullet and the text */
-  width: 1em; /* Also needed for space (tweak if needed) */
-  margin-left: -1em; /* Also needed for space (tweak if needed) */
-}
-  body {
-  color: white;
-}
-       /* Place text in the middle of the image */
-.hero-text {
-  text-align: left;
-  position: absolute;
-  top: 50%;
-  left: 30%;
-  transform: translate(-50%, -50%)
-}
-  p {
-  margin-top: 100px;
-  margin-bottom: 100px;
-  margin-right: 150px;
-  margin-left: 120px;
-}
-       a:link {
-  color: green;
-  background-color: transparent;
-  text-decoration: none;
-}
-
-a:visited {
-  color: white;
-  background-color: transparent;
-  text-decoration: none;
-}
-
-a:hover {
-  color: red;
-  background-color: transparent;
-  text-decoration: underline;
-}
-
-a:active {
-  color: yellow;
-  background-color: transparent;
-  text-decoration: underline;
-}
- </style> 
-          
-<ul><li>Vulnerable - most children speak the language, but it may be restricted to certain domains (e.g., home);</li>
-<li>Definitely endangered - children no longer learn the language as a 'mother tongue' in the home;</li>
-<li>Severely endangered - language is spoken by grandparents and older generations; while the parent generation may understand it, they do not speak it to children or among themselves;
-<li>Critically endangered - the youngest speakers are grandparents and older, and they speak the language partially and infrequently;</li>
-<li>Extinct - there are no speakers left;</li>  
-      </ul>
-   <p style="margin-left:2.5em">UNESCO data retrieved from the <a href="https://www.theguardian.com/news/datablog/2011/apr/15/language-extinct-endangered">Guardian website</a> visualized in QGIS (static map) and a D3 chart.</p>  
-<img src="https://www.uplooder.net/img/image/12/a65742419bc99107194df13df3e99742/language.jpeg" alt="Fig 1: Degrees of language endangerment" width="700" height="450" style="vertical-align:middle;margin:0px 70px">
-
+  </p>
  <br>    
  <br>  
   <svg id="canvas"> </svg>
 
   <script>
-    let lang = {
+    var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/1mUYwl5ZUTp2OHDr0hsco89YY5J8Qx2GWzTLFETzVnB4/edit#gid=1';
+    var dataset = [
+      {
+        name: "Vulnerable",
+        children: [] //     for when    "degree":"Vulnerable",
+
+      },
+      {
+        name: "Definitely endangered",
+        children: [] //     for when    "degree":"Definitely endangered",
+
+      },
+      {
+        name: "Severely endangered",
+        children: [] //     for when    "degree":"Severely endangered",
+      },
+      {
+        name: "Critically endangered",
+        children: [] //     for when    "degree":"Critically endangered",
+      },
+      {
+        name: "Extinct",
+        children: [] //     for when    "degree":"Extinct",
+      }
+    ]; //, groups = [];
+    
+    function CallBack(error, options, response){
+      var datalol = response.rows;
+      for (let i = 1; i < datalol.length; i++) {
+       var template = {
+        name:"",
+        value:"",
+        degree:""
+      };
+      template.name = response.rows[i].cellsArray[0];
+      template.value = response.rows[i].cellsArray[1];
+      template.degree = response.rows[i].cellsArray[2];
+
+      if (template.degree === "Vulnerable") {
+        dataset[0].children.push(template);
+      } else if (template.degree === "Definitely endangered") {
+        dataset[1].children.push(template);
+      } else if (template.degree === "Severely endangered") {
+        dataset[2].children.push(template);
+      } else if (template.degree === "Critically endangered") {
+        dataset[3].children.push(template);
+      } else if (template.degree === "Extinct") {
+        dataset[4].children.push(template);
+      };
+      var template = { // dont ask me why i need to reset it every time, I've got 0 idea :<)
+        name:"",
+        value:"",
+        degree:""
+      };
+    }
+  };
+  sheetrock({
+        url: mySpreadsheet,
+        callback: CallBack
+      });
+
+//test array
+
+let lang = {
 'value': 7506502,
 "Languages": [
     {
@@ -156,6 +150,8 @@ a:active {
   {
     "Name in English": "Extinct",
     'value': 81,
+    "Name in English": "Endangered Languages",
+    "Number of speakers": 13000000,
     "Languages": [
           {
             "Name in English": "|'Auni",
@@ -187,35 +183,123 @@ a:active {
     ]
   };
 
+// D3 CHART BEGINS HERE
+
 let canvas = d3.select('#canvas')
+
 let drawTreeMap = () => {
-  let hierarchy = d3.hierarchy(lang, (node) => {
+  let hierarchy = d3.hierarchy(lang,
+   (node) => {
     return node['Languages']
-  }).sum((node) => {
+   }
+  ).sum(
+   (node) => {
     return node['value']
-  }).sort((node1,node2) => {
+   }
+  ).sort((node1,node2) => {
     return node2['value'] - node1['value']
   })
+  
+  let createTreeMap = d3.treemap()
+                        .size([1000,600])
+
+  createTreeMap(hierarchy)
+
+  let langTiles = hierarchy.leaves()
+  
+  console.log(langTiles)
 
  console.log(hierarchy.leaves())
+  let block = canvas.selectAll('g')
+                    .data(langTiles)
+                    .enter()
+                    .append('g')
 
-};
-console.log(lang);
+  block.append('rect')
+       .attr('class', 'tile')
+       .attr('transform', (language) => {
+	                     return 'translate (' + language['x0'] + ', ' + language['y0'] +')'
+                    })
+                    .attr('width', (language) => {
+                      return language['x1'] - language['x0']
+                    })
+                    .attr('height', (language) => {
+                      return language['y1'] - language['y0']
+                    })
+       .attr('fill', '#ff0000')/*(language) => {
+        let degree = language['data']['Degree of endangerment']
+        if(degree === 'Vulnerable'){
+          return '#ffff00'
+        }else if(degree === 'Definitely endangered'){
+          return '#fff500'
+        }else if(degree === 'Critically endangered'){
+          return 'ff5000'
+        }else if(degree === 'Extinct'){
+          return '#ff0000'
+       } else{
+        return '#808080' */
 
-drawTreeMap();
+/*
+
+let canvas = d3.select('#canvas') //canvas id
+
+let assignmentData  = dataset; // to keep the original
+
+console.log("reference array: "); // reference
+
+console.log(assignmentData); // reference
+
+
+let drawTreeMap = () => {
+  let hierarchy = d3.hierarchy(assignmentData,
+   (node) => {
+    return node['children']
+   }
+  ).sum(
+   (node) => {
+    return node['value']
+   }
+  ).sort(
+   (node1,node2) => {
+    return node2['value'] - node1['value']
+   }
+  )
+
+ let createTreeMap = d3.treemap()
+                       .size([1000,600])
+
+ createTreeMap(hierarchy)
+
+ langTiles = hierarchy.leaves()
+
+
+ let block = canvas.selectAll('g')
+                .data(langTiles)
+                .enter()
+                .append('g')
+
+ block.append('rect')
+      .attr('class', 'tile')
+      /*.attr('fill', (dataset) => {
+    let category = data['Languages']['degree']
+    if(category === 'Vulnerable'){
+        return '#ffff00'
+    }else if(category === 'Definitely endangered'){
+        return 'ffa500'
+    }else if(category === 'Severely endangered'){
+        return '#ff4500'
+    }else if(category === 'Family'){
+        return '#ff0000'
+    }else if(category === 'Extinct'){
+        return '#808080'
+    }
+})*/
+}; 
   </script>
 <footer class="bg-dark p-4">
  <div class="container">
-   Designed and developed by Elise and Mahnaz <br> GEOM 4001 <br>  Contact us: <a href="mailto:geom4001group@gmail.com"> geom4001group@gmail.com</a> <br> Github : <a href="https://github.com/geom4001-group">geom4001-group </a>
+   Designed and developed by Elise and Mahnaz <br> GEOM 4001 <br>  Contact us: <a href="mailto:geom4001group@gmail.com"> geom4001group@gmail.com</a> <br> Github : <a href="https://github.com/geom4001-group">geom4001-group</a>
    </div>
-           <ul>
- <p style="text-align:left;"><b> Bibliography: </b></p> 
- <p style="text-align:left;">Eberhard, D. M., Simons, G. F & Fennig, C. D (eds.). (2022). Ethnologue: Languages of the World. Twenty-fifth edition. Dallas, Texas: SIL International. Retrieved 25 November 2022, Online version: http://www.ethnologue.com.
- <p style="text-align:left;">Fishman, J. A. (1990). Reversing language shift. Clevedon: Multilingual Matters.
-<p style="text-align:left;">The Guardian. (2011). Endangered languages: the full list, 15 April. Available at: https://www.theguardian.com/news/datablog/2011/apr/15/language-extinct-endangered, Accessed: 14 November 2022).    
-<p style="text-align:left;">UNESCO. (2016). How do you define an endangered language? FAQ on endangered languages. Retrieved 25 November 2022, from http://www.unesco.org/new/en/culture/themes/endangered-languages/faq-on-endangered-languages.
-<p style="text-align:left;">UNESCO Ad Hoc Expert Group on Endangered Languages. (2003). Language vitality and endangerment. Paris: UNESCO.</p>
-    </ul>
   </footer>
 </body>
 </html>
