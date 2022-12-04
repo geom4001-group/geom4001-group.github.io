@@ -28,7 +28,7 @@ transform: translate(-50%, -50%)
 /* Style the links inside the navigation bar */
 .topnav a {
 position:relative;
-float: left;
+float: center;
 display: block;
 color: black;
 text-align: center;
@@ -139,18 +139,6 @@ text-align: center;
 background-color: DarkSalmon;
 color: white;
 width:100%;
-position: static;
-}
-
-#canvas {
-margin:5%;
-margin-top: 3px; 
-margin-bottom: 5px;
-min-height: 600px;
-min-width: 1000px;
-background-color: whitesmoke;
-}
-
-#a4block1 {
-position:relative;
+position: sticky;
+bottom: 0px;
 }

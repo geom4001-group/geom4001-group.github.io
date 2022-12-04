@@ -1,0 +1,177 @@
+body, html {
+  background: #fefefe;
+  font-family: Franklin Gothic Medium;
+  font-size: 13px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 100;
+}
+
+
+.topnav {
+  overflow: hidden;
+  background-color: #fefefe;
+  padding: 20px 10px;
+  transition: 0.4s; /* Adds a transition effect when the padding is decreased */
+  position: sticky; /* Sticky/fixed navbar */
+  width: 100%;
+  top: 0; /* At the top */
+  z-index: 97;
+  background-image: url("../picture/banner.jpg");
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+float:left;
+width: 150px;
+text-align: center;
+padding: 5px 10px 5px;
+text-decoration: none;
+font-size: 14px;
+background: #fefefe;
+border: 2px solid #fefefe;
+border-radius: 5px;
+color: #19232c;
+}
+
+.topnav a:hover {
+background: #dcdcdc;
+color: #19232c;
+}
+
+.topnav b {
+  font-family: ITC Franklin Gothic; 
+  font-size: 30px; 
+  font-style: normal; 
+  font-variant: small-caps; 
+  font-weight: 100; 
+  line-height: 26.4px; 
+  float:right;
+  width: auto;
+  text-align: center;
+  padding: 5px 10px 5px;
+  text-decoration: none;
+  color: #19232c;
+  top: 41px;
+  }
+
+.main {
+margin-top: 30px; /* Add a top margin to avoid content overlay */
+}
+
+
+
+/* Add a color to the active/current link */
+.topnav a.active {
+background-color: #dcdcdc;
+border: 2px solid #dcdcdc;
+color: #19232c;
+}
+
+/* Page content */
+.content {
+padding: 16px;
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+padding-top: 102px;
+}
+
+h1 {
+  text-align: justify;
+  font-family: ITC Franklin Gothic; 
+  font-size: 24px; 
+  font-style: italic; 
+  font-variant: normal; 
+  font-weight: 700; 
+  line-height: 26.4px; 
+  color: #19232c;
+}
+
+h3 {
+  text-align: justify;
+  font-family: Franklin Gothic; 
+  font-size: 14pt; 
+  font-style: italic; 
+  font-variant: normal; 
+  font-weight: 100; 
+  line-height: 15px; 
+  color: #4e565e;
+}
+
+h4 {
+  text-align: justify;
+  font-family: Franklin Gothic; 
+  font-size: 10px;
+  font-style: italic;
+  font-variant: normal;
+  font-weight: 100;
+  line-height: 26.4px;
+  color: #4e565e;
+}
+
+h6 {
+   text-align: center;
+   color: #19232c;
+   margin: 0;
+   /*display: block;
+   padding: 15px;
+   font-weight: 700;*/
+   font-size: 10pt;
+   margin-top: 3px;
+   margin-bottom: 5px
+ }
+
+footer {
+text-align: center;
+background-color: #19232c;
+color: white;
+width:100%;
+position: sticky;
+bottom: 0px;
+}
+
+#canvas {
+margin:5%;
+margin-top: 3px; 
+margin-bottom: 2px;
+min-height: 600px;
+min-width: 1000px;
+background-color: whitesmoke;
+
+}
+
+.article {
+  margin-left: 30%;
+  margin-right: 30%;
+  margin-top: 20px;
+  text-align: left;
+}
+
+.article-subtitle {
+  margin-left: 30%;
+  margin-right: 30%;
+  margin-top: 20px;
+  text-align: left;
+  font-size: 10pt;
+}
+
+.article-legend {
+  margin-left: 30%;
+  margin-right: 30%;
+  text-align: left;
+  font-size: 8pt;
+}
+
+#container {
+  display: flex;
+  align-items: center;
+}
+
+#container p {
+  margin-left: 40px;
+}

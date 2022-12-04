@@ -1,149 +1,49 @@
 <!DOCTYPE html>
 <html>
 
+<!--Banner: Elise Note: I have 0 idea why this works up here, but Mahnaz made it work, so :D -->
+      <div class="hero-image" href="picture">
+      <div class="hero-text">
+         <h1>TEST TRIAL</h1>
+       </div>
+     </div>
 <head>
+
  <!-- Site Design-->
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"> </script>
    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-   <link rel="stylesheet" href = "MainStyle.css">
-   <link href="https://g1.nyt.com/fonts/css/web-fonts.d05a02583ca20b8afd5115f3ef8f1b8d134f743d.css" rel="stylesheet" type="text/css">
+   <link rel="stylesheet" href = "..\style\MainStyle.css">
 
    <!-- D3, jQuery, Sheetrock-->
+
    <script src="https://d3js.org/d3.v5.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sheetrock/1.1.4/dist/sheetrock.min.js"></script>
 
    <title> Assignment 3 | GEOM 4001 </title>
 
- <!--Topbar      
-
-
-<div class="hero-text">
-<h1>The InternetGIS Times</h1>
-</div>
-
-
--->
+ <!--Topbar-->
  <div class="topnav">
    <a href="..\index.html">Home</a>
    <a href="..\Assignment1\index.html">Assignment 1</a>
    <a href="..\Assignment2\index.html">Assignment 2</a>
    <a class="active" href="index.html">Assignment 3</a>
-   <b> The InternetGIS Times</b>
  </div>
 </head>
 
 <body>
-    <h1 class="article"> NEW TITLE HERE I GUESS</h1>
-    <h3 class="article-subtitle"> Elise, Mahnaz | December 1st 2022</h3>
-    <p class="article"> 
-     Hello Hello - here are some spaces to fill in the beginning of the article
-    </p>
- <br>
- <br>
+  <p style="margin: 10%;margin-top: 60px; margin-bottom: 5px; text-align: center; font-size: 20pt;">
+    <b> TEST TRIAL </b>
+  </p>
+ <br>    
+ <br>  
   <svg id="canvas"> </svg>
 
-  <h4 class="article-legend"> TreeMap of Endangered Languages.  Data from the Guardian </h4>
-
-
-  <div id="container">
-  <img  style="margin: 5%; margin-top: 5px;margin-bottom: 5px;" src= "img/map.png" height = 400px; > </img>
-
-  <p class="article" style="margin-left:0px"> 
-    Hello Hello - here are some spaces to fill in the beginning of the article.
-  </p>
-
-</div>
-
-  <p class="article"> 
-    Hello Hello - here is space for ending ther article
-  </p>
-  <h3 class="article-subtitle"> Bibliography <br> <br>
-    Hello Hello - here are some spaces to fill in the bibliography.
-    Hello Hello - here are some spaces to fill in the bibliography.
-  </h3>
-
   <script>
-    
-    
-    /* Following is the code for the data array that did not want to cooperate :<)
-    var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/1mUYwl5ZUTp2OHDr0hsco89YY5J8Qx2GWzTLFETzVnB4/edit#gid=1';
-    
-    var lang = {
-      'Languages' : [
-      {
-        'name': "Vulnerable",
-        'Languages': [] //     for when    "degree":"Vulnerable",
+let dataset = {
+        'node': []}, template = {}
 
-      },
-      {
-        'name': "Definitely endangered",
-        'Languages': [] //     for when    "degree":"Definitely endangered",
-
-      },
-      {
-        'name': "Severely endangered",
-        'Languages': [] //     for when    "degree":"Severely endangered",
-      },
-      {
-        'name': "Critically endangered",
-        'Languages': [] //     for when    "degree":"Critically endangered",
-      },
-      {
-        'name': "Extinct",
-        'Languages': [] //     for when    "degree":"Extinct",
-      }
-    ]};
-    
-    function CallBack(error, options, response){
-      var datalol = response.rows;
-      for (let i = 1; i < datalol.length; i++) {
-       var template = {
-        'name':"",
-        'value':0,
-        'degree':""
-      };
-      template.name = response.rows[i].cellsArray[0];
-      template.value = parseInt(response.rows[i].cellsArray[1]);
-      template.degree = response.rows[i].cellsArray[2];
-
-      for (let j = 0; j < template.value.length; j++) {
-        if (template.value[i] === "\"") {
-          template.value.substr(j);
-        }
-        else {
-          continue;
-        }
-      }
-
-      if (template.degree === "Vulnerable") {
-        lang.Languages[0].Languages.push(template);
-      } else if (template.degree === "Definitely endangered") {
-        lang.Languages[1].Languages.push(template);
-      } else if (template.degree === "Severely endangered") {
-        lang.Languages[2].Languages.push(template);
-      } else if (template.degree === "Critically endangered") {
-        lang.Languages[3].Languages.push(template);
-      } else if (template.degree === "Extinct") {
-        lang.Languages[4].Languages.push(template);
-      };     
-      var template = { // dont ask me why i need to reset it every time, I've got 0 idea :<)
-        name:"",
-        value:0,
-        degree:""
-      };
-    }
-  };
-
-  sheetrock({
-        url: mySpreadsheet,
-        callback: CallBack
-      });
-  let hierarchylang;
-
-  */
-
-  let lang =  {
+        let lang =  {
   "Languages": [
     {
       "name": "Vulnerable",
@@ -12868,9 +12768,6 @@
   ]
 };
 
-
-// D3 CHART BEGINS HERE
-
 let canvas = d3.select('#canvas')
 let drawTreeMap = () => {
   let hierarchy = d3.hierarchy(lang, (node) => {
@@ -12886,49 +12783,14 @@ let drawTreeMap = () => {
 
   createTreeMap(hierarchy)
 
-  hierarchylang = hierarchy.leaves();
-  console.log(hierarchylang);
+  console.log('hierarchy leaf array:')
+  console.log(hierarchy.leaves())
 
-  let block = canvas.selectAll('g')
-                .data(hierarchylang)
-                .enter()
-                .append('g')
-                .attr('transform', (language) => {
-	                return 'translate (' + language['x0'] + ', ' + language['y0'] +')'
-                })
-
-  block.append('rect')
-       .attr('class', 'tile')
-       .attr('fill', (language) => {
-        let category = language['data']['degree']
-        if(category === 'Vulnerable'){
-         return '#ffffb2'
-        }else if(category === 'Definitely endangered'){
-         return '#fecc5c'
-        }else if(category === 'Severely endangered'){
-         return '#fd8d3c'
-        }else if(category === 'Critically endangered'){
-         return '#e31a1c'
-        }else if(category === 'Extinct'){
-         return '#808080'
-        }
-       })
-.attr('data-name', (language) => {
-    return language['data']['name']
-})
-.attr('data-degree', (language) => {
-    return language['data']['degree']
-})
-.attr('data-value', (language) => {
-    return language['data']['value']
-})
-.attr('width', (language) => {
-                  return language['x1'] - language['x0']
-                })
-.attr('height', (language) => {
-                  return language['y1'] - language['y0']
-                });
 };
+
+console.log('lang array:')
+
+console.log(lang);
 
 drawTreeMap();
 
