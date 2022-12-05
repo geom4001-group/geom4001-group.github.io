@@ -66,8 +66,8 @@ p {
   text-align: justify;
   text-justify: inter-word;
 }
-div
-{
+
+div {
 text-align:justify/left/right/center;
 text-justify:values;
 }
