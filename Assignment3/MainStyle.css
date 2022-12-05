@@ -71,6 +71,10 @@ div {
 text-align:justify/left/right/center;
 text-justify:values;
 }
+.textPara {
+text-align:justify;
+text-justify:inter-word;
+}
 
 /* Add a color to the active/current link */
 .topnav a.active {
