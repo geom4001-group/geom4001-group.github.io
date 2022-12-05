@@ -62,7 +62,10 @@ color: #19232c;
 margin-top: 30px; /* Add a top margin to avoid content overlay */
 }
 
-
+p {
+  text-align: justify;
+  text-justify: inter-word;
+}
 
 /* Add a color to the active/current link */
 .topnav a.active {
