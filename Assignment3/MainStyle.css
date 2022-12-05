@@ -66,6 +66,11 @@ p {
   text-align: justify;
   text-justify: inter-word;
 }
+div
+{
+text-align:justify/left/right/center;
+text-justify:values;
+}
 
 /* Add a color to the active/current link */
 .topnav a.active {
