@@ -39,9 +39,9 @@ background: #0c8672;
 border: 2px solid #0c8672;
 border-radius: 5px;
 
-}
-div.c {
-text-align: justify;
+div {
+  text-align: justify;
+  text-justify: inter-word;
 }
 .topnav a:hover {
 background: #004890;
